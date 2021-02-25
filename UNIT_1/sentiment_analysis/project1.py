@@ -371,8 +371,9 @@ def bag_of_words(texts):
     for text in texts:
         word_list = extract_words(text)
         for word in word_list:
-            if word in stopwords:
-                pass
+            #uncomment next two lines for part 9
+            #if word in stopwords:
+            #    pass
             elif word not in dictionary:
                 dictionary[word] = len(dictionary)
     
@@ -399,7 +400,9 @@ def extract_bow_feature_vectors(reviews, dictionary):
         word_list = extract_words(text)
         for word in word_list:
             if word in dictionary:
-                feature_matrix[i, dictionary[word]] += 1
+                feature_matrix[i, dictionary[word]] = 1
+                #uncomment next line for part 9
+                #feature_matrix[i, dictionary[word]] += 1
     return feature_matrix
 
 
